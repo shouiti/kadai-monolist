@@ -10,35 +10,38 @@
           <div class="buttons text-center">
             <% if logged_in? %>
               <%= render 'ownerships/want_button', item: @item %>
+              <%= render 'ownerships/have_button', item: @item %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="col-md-3 col-sm-6 col-xs-12">
-  <div class="want-users">
-    <div class="panel panel-default">
-      <div class="panel-heading text-center">
-        Wantしたユーザー
-      </div>
-      <div class="panel-body">
-        <% @want_user.each do |user| %>
-          <%= link_to user.name, user_path(user) %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="have-users">
-    <div class="panel panel-default">
-      <div class="panel-heading text-center">
-        Haveしたユーザー
-      </div>
-      <div class="panel-body">
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="want-users">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          Wantしたユーザー
+        </div>
+        <div class="panel-body">
+          <% @want_users.each do |user| %>
+            <%= link_to user.name, user_path(user) %>
+          <% end %>
+        </div>
       </div>
     </div>
-    <p class="text-center"><%= link_to '楽天詳細ページ', @item.url, target: '_blank' %></p>
+    <div class="have-users">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          Haveしたユーザー
+        </div>
+        <div class="panel-body">
+          <% @have_users.each do |user| %>
+            <%= link_to user.name, user_path(user) %>
+          <% end %>
+        </div>
+      </div>
+      <p class="text-center"><%= link_to '楽天詳細ページ', @item.url, target: '_blank' %></p>
+    </div>
   </div>
 </div>
